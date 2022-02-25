@@ -6,6 +6,6 @@ Creation and optimization of an workflow for the automatic update of dockerimage
 - git hub actions have to build automatic the dockerimages and update
 - build CI/CD Pipeline
 - dockerfiles must be edit from you
-
+- test
 
 
