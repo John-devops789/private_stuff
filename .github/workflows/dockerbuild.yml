@@ -67,10 +67,16 @@ jobs:
          #Update the Dockerimages
       - name: Run Watchtower Container
         run: 
-         docker run -d containrrr/watchtower \    
+         docker run -it -d containrrr/watchtower \    
          --name watchtower \
          -v /var/run/docker.sock:/var/run/docker.sock \
-         containrrr/watchtower            
+         containrrr/watchtower \
+         --cleanup \
+         --include-restarting \
+         --include-restart \
+         --interval 21600
+         
+         
                    
                  
                  
