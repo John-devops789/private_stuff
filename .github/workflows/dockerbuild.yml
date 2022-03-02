@@ -37,24 +37,34 @@ jobs:
       # Runs a single command using the runners shell
           
       - name: Build Dockerimage elasticsearch
-        run: 
+        run: |
           docker build ./elasticsearch -t elasticsearch
-          #docker run -d                                  #Build the elasticsearch Docker Image
+          
+      - name: Run elasticsearch Container
+        run: |  
+          docker run -d
+          
           
       - name: Build Dockerimage nginx
-        run: 
-          docker build ./nginx -t nginx                   #Build the nginx Docker Image
-          #docker run -d
+        run: | 
+          docker build ./nginx -t nginx                  
+          
+      - name: Run nginx Container
+        run: |
+          docker run -d
+          
           
       - name: Build Dockerimage python
-        run: 
-          docker build ./python -t python                 #Build the python Docker Image
-          #docker run -d 
+        run: |
+          docker build ./python -t python              
           
-          
+      - name: Run python Container
+        run: |
+          docker run -d
+                   
           
       - name: Push the Docker Images to registry
-        run:
+        run: |
           docker push elasticsearch
           docker push nginx
           docker push python
