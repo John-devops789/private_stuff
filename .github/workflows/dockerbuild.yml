@@ -76,7 +76,7 @@ jobs:
          --include-restart \
          --interval 21600
          
-         $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
+      
                    
                  
                  
