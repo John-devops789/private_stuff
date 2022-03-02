@@ -54,20 +54,20 @@ jobs:
           docker run -d nginx
           
           
-      - name: Build Dockerimage python
-        run: |
-          docker build ./python -t python              
-          
-      - name: Run python Container
-        run: |
-          docker run -d python
+ #     - name: Build Dockerimage python
+  #      run: |
+   #       docker build ./python -t python              
+    #      
+     # - name: Run python Container
+      #  run: |
+       #   docker run -d python
                    
                    
                    
          #Update the Dockerimages
       - name: Run Watchtower Container
         run: |
-         docker run -d 
+         docker run -d watchtower
          --name watchtower 
          -v /var/run/docker.sock:/var/run/docker.sock 
          containrrr/watchtower            
