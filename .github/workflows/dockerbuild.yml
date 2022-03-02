@@ -81,6 +81,9 @@ jobs:
           
       - name: Push the Docker Images to registry
         run: |
+          docker tag elasticsearch ${{secrets.DOCKER_USER}}/elasticsearch
+          docker tag nginx ${{secrets.DOCKER_USER}}/nginx
+
           docker push ${{secrets.DOCKER_USER}}/elasticsearch:latest
           docker push ${{secrets.DOCKER_USER}}/nginx:latest
       
