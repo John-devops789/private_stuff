@@ -25,23 +25,31 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        
+        run:
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      
 
       # Runs a single command using the runners shell
           
       - name: Build Dockerimage elasticsearch
         run: 
           docker build ./elasticsearch -t elasticsearch
-          docker run -d
+          #docker run -d
           
       - name: Build Dockerimage nginx
         run: 
           docker build ./nginx -t nginx
-          docker run -d
+          #docker run -d
           
       - name: Build Dockerimage python
         run: 
           docker build ./python -t python
-          docker run -d
+          #docker run -d
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
