@@ -54,13 +54,13 @@ jobs:
           docker run -d nginx:latest
           
           
- #     - name: Build Dockerimage python
-  #      run: |
-   #       docker build ./python -t python:latest              
-    #      
-     # - name: Run python Container
-      #  run: |
-       #   docker run -d python:latest
+      - name: Build Dockerimage python
+        run: |
+          docker build ./python -t python:latest              
+          
+      - name: Run python Container
+        run: |
+          docker run -d python:latest
                    
                    
                    
@@ -79,13 +79,16 @@ jobs:
                  
                  
           
-      - name: Push the Docker Images to registry
+      - name: Tag & Push the Docker Images to registry
         run: |
           docker tag elasticsearch ${{secrets.DOCKER_USER}}/elasticsearch
           docker tag nginx ${{secrets.DOCKER_USER}}/nginx
+          docker tag python ${{secrets.DOCKER_USER}}/python
 
           docker push ${{secrets.DOCKER_USER}}/elasticsearch:latest
           docker push ${{secrets.DOCKER_USER}}/nginx:latest
+          docker push ${{secrets.DOCKER_USER}}/python:latest
+          
       
           
           
