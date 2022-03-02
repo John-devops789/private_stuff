@@ -81,8 +81,8 @@ jobs:
           
       - name: Push the Docker Images to registry
         run: |
-          docker push elasticsearch:latest
-          docker push nginx:latest
+          docker push docker.io/library/elasticsearch
+          docker push docker.io/library/elasticsearch 
       
           
           
