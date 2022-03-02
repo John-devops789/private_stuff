@@ -42,7 +42,7 @@ jobs:
           
       - name: Run elasticsearch Container
         run: |  
-          docker run -d
+          docker run -d elasticsearch
           
           
       - name: Build Dockerimage nginx
@@ -51,7 +51,7 @@ jobs:
           
       - name: Run nginx Container
         run: |
-          docker run -d
+          docker run -d nginx
           
           
       - name: Build Dockerimage python
@@ -60,7 +60,7 @@ jobs:
           
       - name: Run python Container
         run: |
-          docker run -d
+          docker run -d python
                    
           
       - name: Push the Docker Images to registry
