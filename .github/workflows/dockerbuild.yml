@@ -83,8 +83,8 @@ jobs:
           
       - name: Push the Docker Images to registry
         run: |
-          docker push ghcr.io/John-Devops/elasticsearch:latest
-          docker push ghcr.io/John-Devops/nginx:latest
+          docker push ghcr.io/elasticsearch:latest
+          docker push ghcr.io/nginx:latest
       
           
           
