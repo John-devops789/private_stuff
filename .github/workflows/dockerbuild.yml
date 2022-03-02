@@ -62,6 +62,18 @@ jobs:
         run: |
           docker run -d python
                    
+                   
+                   
+         #Update the Dockerimages
+      - name: Run Watchtower Container
+        run: |
+         docker run -d 
+         --name watchtower 
+         -v /var/run/docker.sock:/var/run/docker.sock 
+         containrrr/watchtower            
+                   
+                 
+                 
           
       - name: Push the Docker Images to registry
         run: |
