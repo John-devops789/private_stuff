@@ -76,16 +76,16 @@ jobs:
          --include-restart \
          --interval 21600
          
-         
+         $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
                    
                  
                  
           
       - name: Push the Docker Images to registry
         run: |
-          docker push elasticsearch
-          docker push nginx
-          docker push python
+          docker push ghcr.io/John-Devops/elasticsearch:latest
+          docker push ghcr.io/John-Devops/nginx:latest
+      
           
           
       # Runs a set of commands using the runners shell
