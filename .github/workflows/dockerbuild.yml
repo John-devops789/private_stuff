@@ -38,29 +38,29 @@ jobs:
           
       - name: Build Dockerimage elasticsearch
         run: |
-          docker build ./elasticsearch -t elasticsearch
+          docker build ./elasticsearch -t elasticsearch:latest
           
       - name: Run elasticsearch Container
         run: |  
-          docker run -d elasticsearch
+          docker run -d elasticsearch:latest
           
           
       - name: Build Dockerimage nginx
         run: | 
-          docker build ./nginx -t nginx                  
+          docker build ./nginx -t nginx:latest                  
           
       - name: Run nginx Container
         run: |
-          docker run -d nginx
+          docker run -d nginx:latest
           
           
  #     - name: Build Dockerimage python
   #      run: |
-   #       docker build ./python -t python              
+   #       docker build ./python -t python:latest              
     #      
      # - name: Run python Container
       #  run: |
-       #   docker run -d python
+       #   docker run -d python:latest
                    
                    
                    
@@ -75,16 +75,14 @@ jobs:
          --include-restarting \
          --include-restart \
          --interval 21600
-         
-      
-                   
+                            
                  
                  
           
       - name: Push the Docker Images to registry
         run: |
-          docker push ghcr.io/elasticsearch:latest
-          docker push ghcr.io/nginx:latest
+          docker push elasticsearch:latest
+          docker push nginx:latest
       
           
           
